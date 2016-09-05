@@ -1,2 +1,4 @@
-src/
-*.*~
+*
+!.gitignore
+!README.md
+!sbt_directory_structure.py

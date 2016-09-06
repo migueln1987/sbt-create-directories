@@ -1,7 +1,12 @@
 import os
 import sys
 
-project_name = 'MyProject'
+if len(sys.argv) < 2:
+    project_name = input('Enter a project name: ')
+else:
+    project_name = sys.argv[1]
+
+
 root_path = os.path.join(project_name, 'src/')
 folders = ['main', 'test']
 subfolders = ['resources', 'scala', 'java']
@@ -28,7 +33,7 @@ if sys.platform.startswith('linux') or sys.platform.startswith('darwin'):
                 print(e)
 
     file = open(os.path.join(project_name,'build.sbt'), 'w')
-    file.write('name:= "MyProject"\nversion := "1.0"\nscalaVersion:= "2.11.8"')
+    file.write('name:= "{}"\nversion := "1.0"\nscalaVersion:= "2.11.8"'.format(project_name))
     file.close()
                  
 if sys.platform.startswith('win32'):

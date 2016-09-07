@@ -32,5 +32,9 @@ for i in root_folders:
             print(e)
 
 file = open(os.path.join(project_name,'build.sbt'), 'w')
-file.write('name:= "{}"\nversion := "1.0"\nscalaVersion:= "2.11.8"'.format(project_name))
+file.write('name:= "{}"\n\nversion := "1.0"\n\nscalaVersion:= "2.11.8"'.format(project_name))
 file.close()
+
+build_properties = open(os.path.join(project_name, 'project', 'build.properties'), 'w')
+build_properties.write('sbt.version=0.13.12')
+build_properties.close()
